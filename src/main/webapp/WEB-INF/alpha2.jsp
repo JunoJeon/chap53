@@ -56,7 +56,33 @@
 			</select>
 	</fieldset>
 	
-	<input type="submit" value="select">
+	<fieldset>
+		<input type="reset">
+		<input type="submit">
+		<input type="image" src="http://via.placeholder.com/50x50">
+	</fieldset>
+	
+	<fieldset>
+		<legend>Language</legend>
+		<label for="java">java</label>
+		<input id="java" type="checkbox" name="lang" value="java">
+		<label for="python">python</label>
+		<input id="python" type="checkbox" name="lang" value="python">
+		<label for="html">html</label>
+		<input id="html" type="checkbox" name="lang" value="html">
+	</fieldset>
+	
+	<fieldset>
+		<legend>Other</legend>
+		<input type="date" name="birthday">
+		<input type="time" name="starday">
+		<input type="color" name ="rgb">
+	</fieldset>
+	
+	<fieldset>
+		<legend>comment</legend>
+		<textarea rows="10" cols="20"></textarea>
+	</fieldset>
 </form>
 <hr>
 <table>
