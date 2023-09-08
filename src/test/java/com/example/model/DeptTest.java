@@ -9,6 +9,25 @@ import com.example.model.Dept;
 public class DeptTest {
 	
 	@Test
+	void builder()  {
+		var dept1 = new Dept();
+		dept1.setDeptno(10);
+		dept1.setDname("개발부");
+		dept1.setLoc("서울");
+		
+		var dept2 = new Dept(10, "개발부", "서울");
+		
+		var dept3 = Dept.builder()
+						.deptno(10)
+						.dname("개발부")
+						.loc("서울").build();
+		
+		assertThat(dept1).isEqualTo(dept2);
+		assertThat(dept1).isEqualTo(dept3);
+		assertThat(dept2).isEqualTo(dept3);
+	}
+	
+	@Test
 	void setter() {
 		var dept = new Dept();
 		dept.setDeptno(10);

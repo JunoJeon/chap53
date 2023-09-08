@@ -11,22 +11,45 @@
 <h1>Emp List</h1>
 <hr>
 <form action="/emp/list">
+	<label>부서 선택</label>
+	<select name="deptno">
+		<c:choose>
+			<c:when test="${empty param.deptno }">
+				<option value="" selected="selected">전체</option>
+			</c:when>
+			<c:otherwise>
+				<option value="">전체</option>
+			</c:otherwise>
+		</c:choose>
+		
+		<c:forEach var="dept" items="${depts}">
+		<c:choose>
+			<c:when test="${param.deptno eq dept.deptno }">
+				<option value="${dept.deptno}" selected="selected">${dept.deptno} ${dept.dname}</option>
+			</c:when>
+			<c:otherwise>
+				<option value="${dept.deptno}">${dept.deptno} ${dept.dname}</option>
+			</c:otherwise>
+		</c:choose>
+		</c:forEach>
+	</select>
 	<input type="text" name="search">
-	<input type="submit" value="검색">
+	<input type="submit" value="직원검색">
 </form>
+
 <hr>
 <table border="1" width="800">
 	<thead>
 		<tr>
-			<td>empno</td>
-			<td>ename</td>
-			<td>gender</td>
-			<td>job</td>
-			<td>mgr</td>
-			<td>hiredate</td>
-			<td>sal</td>
-			<td>comm</td>
-			<td>deptno</td>
+			<td>EMPNO</td>
+			<td>ENAME</td>
+			<td>GENDER</td>
+			<td>JOB</td>
+			<td>MGR</td>
+			<td>HIREDATE</td>
+			<td>SAL</td>
+			<td>COMM</td>
+			<td>DEPTNO</td>
 		</tr>
 	</thead>
 	<tbody>
@@ -38,9 +61,9 @@
 			<td>${emp.job}</td>
 			<td>${emp.mgr}</td>
 			<td>${emp.hiredate}</td>
-			<td>${emp.sal}</td>
-			<td>${emp.comm}</td>
-			<td>${emp.deptno}</td>
+			<td align="right">${emp.sal}</td>
+			<td align="right">${emp.comm}</td>
+			<td >${emp.deptno}</td>
 		</tr>
 	</c:forEach>
 	</tbody>
